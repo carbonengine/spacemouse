@@ -316,7 +316,7 @@ PyObject* PyRegisterWindow( PyObject* self, PyObject* args )
 	}
 	else
 	{
-		PyErr_Format( PyExc_RuntimeError, "failed to initialize space mouse: %s", SpwErrorString( ret ) );
+		PyErr_Format( PyExc_RuntimeError, "failed to initialize space mouse, error code: %i", int( ret ) );
 		return nullptr;
 	}
 }
