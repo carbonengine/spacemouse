@@ -290,10 +290,10 @@ bool ParseActionSequence( PyObject* pyActions, SiActionNodeEx_t*& firstAction )
 PyObject* PyRegisterWindow( PyObject* self, PyObject* args )
 {
 	const char* name;
-	long wnd;
+	unsigned long long wnd;
 	PyObject* handler = nullptr;
 	PyObject* actionHandler = nullptr;
-	if( !PyArg_ParseTuple( args, "skO|O", &name, &wnd, &handler, &actionHandler ) )
+	if( !PyArg_ParseTuple( args, "sKO|O", &name, &wnd, &handler, &actionHandler ) )
 	{
 		return nullptr;
 	}
@@ -323,8 +323,8 @@ PyObject* PyRegisterWindow( PyObject* self, PyObject* args )
 
 PyObject* PyUnRegisterWindow( PyObject* self, PyObject* args )
 {
-	long wnd;
-	if( !PyArg_ParseTuple( args, "k", &wnd ) )
+	unsigned long long wnd;
+	if( !PyArg_ParseTuple( args, "K", &wnd ) )
 	{
 		return nullptr;
 	}
@@ -341,8 +341,8 @@ PyObject* PyUnRegisterWindow( PyObject* self, PyObject* args )
 PyObject* PyAddActionSet( PyObject* self, PyObject* args )
 {
 	PyObject* pyActions;
-	long wnd;
-	if( !PyArg_ParseTuple( args, "kO", &wnd, &pyActions ) )
+	unsigned long long wnd;
+	if( !PyArg_ParseTuple( args, "KO", &wnd, &pyActions ) )
 	{
 		return nullptr;
 	}
@@ -371,9 +371,9 @@ PyObject* PyAddActionSet( PyObject* self, PyObject* args )
 
 PyObject* PyActivateActionSet( PyObject* self, PyObject* args )
 {
-	long wnd;
+	unsigned long long wnd;
 	const char* name;
-	if( !PyArg_ParseTuple( args, "ks", &wnd, &name ) )
+	if( !PyArg_ParseTuple( args, "Ks", &wnd, &name ) )
 	{
 		return nullptr;
 	}
