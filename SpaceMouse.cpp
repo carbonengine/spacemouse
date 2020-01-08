@@ -115,7 +115,7 @@ LRESULT WINAPI HandleEvent( HWND hWnd, unsigned msg, WPARAM wParam, LPARAM lPara
 	}
 
 	auto proc = reinterpret_cast<WNDPROC>( GetProp( hWnd, PROP_OLD_PROC ) );
-	auto result = CallWindowProc( proc, hWnd, msg, wParam, lParam );
+	auto result = CallWindowProcW( proc, hWnd, msg, wParam, lParam );
 	if( msg == WM_DESTROY )
 	{
 		auto gstate = PyGILState_Ensure();
@@ -168,7 +168,7 @@ SpwRetVal RegisterWindow( const char* appName, HWND window, PyObject* handler, P
 		Py_XINCREF( actionHandler );
 		SetProp( window, PROP_ACTION_HANDLER, reinterpret_cast<HANDLE>( actionHandler ) );
 		SetProp( window, PROP_DEVICE, reinterpret_cast<HANDLE>( deviceHandle ) );
-		auto oldProc = (WNDPROC)SetWindowLongPtr( window, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>( &HandleEvent ) );
+		auto oldProc = (WNDPROC)SetWindowLongPtrW( window, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>( &HandleEvent ) );
 		SetProp( window, PROP_OLD_PROC, reinterpret_cast<HANDLE>( oldProc ) );
 	}
 
