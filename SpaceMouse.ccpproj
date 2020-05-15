@@ -1,8 +1,8 @@
 # These are the SDKs that are used by all configurations
 Imports:
 - ../core_project/core_project.yaml
-- ../../../../../../sdk/3dconnexion/3dxwaresdk/10.5.10/3dwaresdk.yaml 
-- ../../../../../../sdk/python/ccpproj/Python_2.7.yaml
+- ../../../vendor/3dconnexion/3dxwaresdk/10.5.10/3dwaresdk.yaml 
+- ../../../vendor/python/ccpproj/Python_2.7.yaml
 
 # Settings from the General section, for all configurations
 General:
