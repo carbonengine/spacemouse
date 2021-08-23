@@ -5,12 +5,13 @@
 
 #pragma once
 
+#if _WIN32
+
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>
 
-#include "Python.h"
-
+#define NO_SPACE_MOUSE 0
 
 /* SpaceWare Specific Includes */
 #include "spwmacro.h"  /* Common macros used by SpaceWare functions. */
@@ -21,3 +22,19 @@
 #pragma warning( disable: 4995 )
 #include "siappcmd.h"
 #pragma warning( pop )
+
+#elif __APPLE__
+
+#include <vector>
+#include <mach-o/dyld.h>
+
+#define NO_SPACE_MOUSE 0
+
+#else
+
+#define NO_SPACE_MOUSE 1
+
+#endif
+
+#include "Python.h"
+
