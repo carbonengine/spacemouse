@@ -40,7 +40,7 @@ void PyActionEventHandler( const char* id, void* context )
 
 int RegisterWindow( const char* appName, void* window, PyObject* handler, PyObject* actionHandler )
 {
-	return 0;
+	return 1;
 }
 
 bool UnRegisterWindow( void* window )
@@ -51,6 +51,7 @@ bool UnRegisterWindow( void* window )
 
 void SetSpaceMouseException( const char* context, int errorCode )
 {
+    PyErr_SetString( PyExc_RuntimeError, context );
 }
 
 bool AddActionSet( void* window, PyObject* actions )
