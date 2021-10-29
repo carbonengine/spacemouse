@@ -1,13 +1,5 @@
 #pragma once
 
-// SpaceMouse currently isn't available for ARM64
-#if __aarch64__
-#ifdef NO_SPACE_MOUSE
-#undef NO_SPACE_MOUSE
-#endif
-#define NO_SPACE_MOUSE 1
-#endif
-
 struct SpaceMousePosition
 {
 	float translation[3];
