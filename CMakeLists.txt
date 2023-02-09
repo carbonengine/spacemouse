@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(spacemouse VERSION 1.0.0)
+project(spacemouse)
 
 if(NOT DEFINED ENV{CCP_EVE_PERFORCE_BRANCH_PATH})
     message(FATAL_ERROR "Missing required environment variable CCP_EVE_PERFORCE_BRANCH_PATH")
