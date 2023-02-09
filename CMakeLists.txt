@@ -51,12 +51,6 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}"
 target_precompile_headers(spacemouse PRIVATE stdafx.h)
 if(APPLE)
     enable_language(OBJCXX)
-    set_target_properties(
-        spacemouse
-        PROPERTIES 
-            PREFIX ""
-            SUFFIX ".so"
-    )
 endif()
 
 set_target_properties(spacemouse PROPERTIES OUTPUT_NAME "_spacemouse")
