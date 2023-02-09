@@ -68,6 +68,8 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     # Install rule for available public headers
     install(FILES ${PUBLIC_HEADER_FILES} DESTINATION include)
 
+    message(STATUS "lib/${CCP_PLATFORM}/${CCP_ARCHITECTURE}/${CCP_TOOLSET}/")
+
     configure_ccp_vendor_config_file(
         TARGET spacemouse
         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/spacemouseConfig.cmake"
