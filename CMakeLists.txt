@@ -77,4 +77,10 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
         DEPENDENCIES ""
     )
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/spacemouseConfig.cmake DESTINATION .)
+
+     # Install python package
+     install(DIRECTORY python/ DESTINATION python
+     FILES_MATCHING
+     PATTERN "*.py"
+)
 endif()
