@@ -25,7 +25,7 @@ void PyActionEventHandler( const char* id, void* context )
 	auto gstate = PyGILState_Ensure();
 
 	auto tuple = PyTuple_New( 1 );
-	PyTuple_SET_ITEM( tuple, 0, PyString_FromString( id ) );
+	PyTuple_SET_ITEM( tuple, 0, PyUnicode_FromString( id ) );
 
 	auto result = PyObject_Call( (PyObject*)context, tuple, nullptr );
 	if( result )
@@ -210,10 +210,19 @@ PyMethodDef SpaceMouseMethods[] = {
 #define STRINGIZE( x ) _STRINGIZE( x )
 #define _STRINGIZE( s ) #s
 
+
+static struct PyModuleDef moduledef = {
+		PyModuleDef_HEAD_INIT,
+		STRINGIZE(CONCAT(_spacemouse, CCP_BUILD_FLAVOR)),
+		"", 
+		-1,     
+		SpaceMouseMethods, 
+};
+
 #ifndef _WIN32
 __attribute__((visibility ("default")))
 #endif
-PyMODINIT_FUNC CONCAT( init_spacemouse, CCP_BUILD_FLAVOR )()
+PyMODINIT_FUNC CONCAT( PyInit__spacemouse, CCP_BUILD_FLAVOR )()
 {
-	Py_InitModule( STRINGIZE( CONCAT( _spacemouse, CCP_BUILD_FLAVOR ) ), SpaceMouseMethods );
+	return PyModule_Create(&moduledef);
 }
