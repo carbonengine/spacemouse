@@ -10,7 +10,7 @@
     },
     {
       "name": "3dxwaresdk-osx",
-      "version>=": "10.7.0#1",
+      "version>=": "10.7.0#2",
       "platform": "osx"
     }
   ]
