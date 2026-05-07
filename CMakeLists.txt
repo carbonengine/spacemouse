@@ -4,6 +4,7 @@ project(spacemouse)
 include(cmake/CcpBuildConfigurations.cmake)
 include(cmake/CcpTargetConfigurations.cmake)
 include(cmake/CcpPackageConfigHelpers.cmake)
+include(cmake/CcpMonolithVendorConfig.cmake)
 include(CMakePackageConfigHelpers)
 
 find_package(Python3 COMPONENTS Development REQUIRED)
@@ -23,8 +24,6 @@ elseif(APPLE)
 else()
 	message(FATAL_ERROR "Spacemouse does not support platform specified.")
 endif()
-
-set(PUBLIC_HEADER_FILES "")
 
 ccp_add_library(spacemouse SHARED ${SRC_FILES})
 
@@ -58,8 +57,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
             ARCHIVE DESTINATION lib/${CCP_PLATFORM}/${CCP_ARCHITECTURE}/${CCP_TOOLSET}/
             RUNTIME DESTINATION bin/${CCP_PLATFORM}/${CCP_ARCHITECTURE}/${CCP_TOOLSET}/
         )
-        # Install rule for available public headers
-        install(FILES ${PUBLIC_HEADER_FILES} DESTINATION include)
 
         configure_ccp_vendor_config_file(
             TARGET spacemouse
@@ -78,20 +75,19 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
                 TARGETS spacemouse
                 EXPORT spacemouseTargets
                 CONFIGURATIONS ${CMAKE_CONFIGURATION_TYPES}
+                LIBRARY DESTINATION lib/
                 ARCHIVE DESTINATION lib/
+                RUNTIME DESTINATION bin/
         )
-
-        # Install rule for available public headers
-        install(FILES ${PUBLIC_HEADER_FILES} DESTINATION include)
 
         install(
                 EXPORT spacemouseTargets
-                DESTINATION ${CMAKE_INSTALL_PREFIX}/share/carbon-spacemouse
+                DESTINATION share/carbon-spacemouse
                 FILE carbon-spacemouse.cmake
         )
         install(
                 FILES carbon-spacemouseConfig.cmake
-                DESTINATION ${CMAKE_INSTALL_PREFIX}/share/carbon-spacemouse
+                DESTINATION share/carbon-spacemouse
         )
 
  endif()
