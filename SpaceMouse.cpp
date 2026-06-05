@@ -1,3 +1,5 @@
+// Copyright © 2018 CCP ehf.
+
 #include "stdafx.h"
 #include "SpaceMouse.h"
 

@@ -5,12 +5,12 @@
     },
     {
       "name": "3dxwaresdk-win",
-      "version>=": "10.5.10#1",
+      "version>=": "10.5.10",
       "platform": "windows"
     },
     {
       "name": "3dxwaresdk-osx",
-      "version>=": "10.7.0#2",
+      "version>=": "10.7.0",
       "platform": "osx"
     }
   ]

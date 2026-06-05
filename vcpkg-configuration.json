@@ -8,14 +8,8 @@
     {
       "kind": "git",
       "repository": "git@github.com:carbonengine/vcpkg-registry.git",
-      "baseline": "798614d53c8cf22ae0d8c2deab354c01658b00bb",
-      "packages": ["python3", "zlib"]
-    },
-    {
-      "kind": "git",
-      "repository": "git@github.com:ccpgames/carbon-vcpkg-registry.git",
-      "baseline": "4f3ca3b2bdf404548f0b5119922ba33b5560db9c",
-      "packages": ["3dxwaresdk-win", "3dxwaresdk-osx"]
+      "baseline": "58792f92a82c0c4627917ddcf9a7a0c22f489a31",
+      "packages": ["python3", "zlib", "3dxwaresdk-win", "3dxwaresdk-osx"]
     }
   ]
 }

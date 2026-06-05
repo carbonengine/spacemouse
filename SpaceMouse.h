@@ -1,3 +1,5 @@
+// Copyright © 2021 CCP ehf.
+
 #pragma once
 
 struct SpaceMousePosition
