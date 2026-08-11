@@ -7,9 +7,14 @@
   "registries": [
     {
       "kind": "git",
-      "repository": "git@github.com:carbonengine/vcpkg-registry.git",
+      "repository": "https://github.com/carbonengine/vcpkg-registry.git",
       "baseline": "58792f92a82c0c4627917ddcf9a7a0c22f489a31",
-      "packages": ["python3", "zlib", "3dxwaresdk-win", "3dxwaresdk-osx"]
+      "packages": [
+        "python3",
+        "zlib",
+        "3dxwaresdk-win",
+        "3dxwaresdk-osx"
+      ]
     }
   ]
 }
