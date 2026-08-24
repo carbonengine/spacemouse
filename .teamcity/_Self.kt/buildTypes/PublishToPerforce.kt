@@ -208,7 +208,7 @@ class Publish(perforce_publish_path: String) : BuildType({
             }
 
             artifacts {
-                artifactRules = "**/*=>%perforce_path_to_publish_into%/${MacOS.arm64_Release.depParamRefs["env.GIT_TAG_HASH"]}"
+                artifactRules = "artifact.zip!**=>%perforce_path_to_publish_into%/${MacOS.arm64_Release.depParamRefs["env.GIT_TAG_HASH"]}"
             }
         }
         dependency(Windows.Debug) {
@@ -217,7 +217,7 @@ class Publish(perforce_publish_path: String) : BuildType({
             }
 
             artifacts {
-                artifactRules = "**/*=>%perforce_path_to_publish_into%/${Windows.Debug.depParamRefs["env.GIT_TAG_HASH"]}"
+                artifactRules = "artifact.zip!**=>%perforce_path_to_publish_into%/${Windows.Debug.depParamRefs["env.GIT_TAG_HASH"]}"
             }
         }
         dependency(Windows.Internal) {
@@ -226,7 +226,7 @@ class Publish(perforce_publish_path: String) : BuildType({
             }
 
             artifacts {
-                artifactRules = "**/*=>%perforce_path_to_publish_into%/${Windows.Internal.depParamRefs["env.GIT_TAG_HASH"]}"
+                artifactRules = "artifact.zip!**=>%perforce_path_to_publish_into%/${Windows.Internal.depParamRefs["env.GIT_TAG_HASH"]}"
             }
         }
         dependency(Windows.Release) {
@@ -235,7 +235,7 @@ class Publish(perforce_publish_path: String) : BuildType({
             }
 
             artifacts {
-                artifactRules = "**/*=>%perforce_path_to_publish_into%/${Windows.Release.depParamRefs["env.GIT_TAG_HASH"]}"
+                artifactRules = "artifact.zip!**=>%perforce_path_to_publish_into%/${Windows.Release.depParamRefs["env.GIT_TAG_HASH"]}"
             }
         }
         dependency(Windows.TrinityDev) {
@@ -244,7 +244,7 @@ class Publish(perforce_publish_path: String) : BuildType({
             }
 
             artifacts {
-                artifactRules = "**/*=>%perforce_path_to_publish_into%/${Windows.TrinityDev.depParamRefs["env.GIT_TAG_HASH"]}"
+                artifactRules = "artifact.zip!**=>%perforce_path_to_publish_into%/${Windows.TrinityDev.depParamRefs["env.GIT_TAG_HASH"]}"
             }
         }
         artifacts(AbsoluteId("Infrastructure_MetaTeamCity_Tools_TeamcityChanges")) {
