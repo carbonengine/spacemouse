@@ -92,5 +92,10 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
                 DESTINATION share/carbon-spacemouse
         )
 
+        install(DIRECTORY python/ DESTINATION python
+                FILES_MATCHING
+                PATTERN "*.py"
+        )
+
  endif()
 endif()
